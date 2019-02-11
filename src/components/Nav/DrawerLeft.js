@@ -115,10 +115,8 @@ class PersistentDrawerLeft extends React.Component {
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" color="inherit" noWrap>
-              <Link className="drawer-link" to="/home">
+            <Typography variant="h6" color="inherit" noWrap onClick={this.handleDrawerOpen}>    
                 Community Garden Menu
-              </Link>
             </Typography>
           </Toolbar>
         </AppBar>
