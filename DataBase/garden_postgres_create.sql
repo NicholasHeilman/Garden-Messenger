@@ -1,6 +1,6 @@
-CREATE TABLE "users" (
+CREATE TABLE "person" (
     "id" SERIAL PRIMARY KEY NOT NULL UNIQUE,
-    "name" VARCHAR(24) NOT NULL,
+    "username" VARCHAR(24) NOT NULL,
     "email" VARCHAR(48) NOT NULL,
     "password" VARCHAR(24) NOT NULL
 );
