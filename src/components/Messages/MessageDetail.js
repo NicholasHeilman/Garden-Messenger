@@ -7,7 +7,7 @@ class MessageDetail extends Component {
     
         return (
             <div>
-                
+                <h3>message Details</h3>
             </div>
         );
     }

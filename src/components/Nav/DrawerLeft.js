@@ -138,7 +138,18 @@ class PersistentDrawerLeft extends React.Component {
           <List>
             {[<Link className="drawer-link" to="/home" onClick={this.handleDrawerClose}>Home</Link>, 'Add New'].map((text, index) => (
               <ListItem button key={text}>
-                <ListItemIcon>{index % 2 === 0 ?<Link className="drawer-link" to="/home" onClick={this.handleDrawerClose}> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" /><path d="M0 0h24v24H0z" fill="none" /></svg></Link> : <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z" /><path d="M0 0h24v24H0z" fill="none" /></svg>}</ListItemIcon>
+                <ListItemIcon>{index % 2 === 0 ?
+                    <Link className="drawer-link" to="/home" onClick={this.handleDrawerClose}> 
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                          <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                          <path d="M0 0h24v24H0z" fill="none" />
+                      </svg>
+                    </Link> : 
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"> 
+                            <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z" />
+                            <path d="M0 0h24v24H0z" fill="none" />
+                      </svg>}
+                    </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItem>
             ))}
@@ -147,7 +158,12 @@ class PersistentDrawerLeft extends React.Component {
           <List>
             {['Admin', 'Log out'].map((text, index) => (
               <ListItem button key={text}>
-                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> :  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16,17V14H9V10H16V7L21,12L16,17M14,2A2,2 0 0,1 16,4V6H14V4H5V20H14V18H16V20A2,2 0 0,1 14,22H5A2,2 0 0,1 3,20V4A2,2 0 0,1 5,2H14Z" /></svg>}</ListItemIcon>
+                <ListItemIcon>{index % 2 === 0 ? 
+                    <InboxIcon /> :  
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M16,17V14H9V10H16V7L21,12L16,17M14,2A2,2 0 0,1 16,4V6H14V4H5V20H14V18H16V20A2,2 0 0,1 14,22H5A2,2 0 0,1 3,20V4A2,2 0 0,1 5,2H14Z" /> 
+                        </svg>}
+                </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItem>
             ))}
@@ -159,7 +175,6 @@ class PersistentDrawerLeft extends React.Component {
           })}
         >
           <div className={classes.drawerHeader} />
-          
         </main>
       </div>
     );

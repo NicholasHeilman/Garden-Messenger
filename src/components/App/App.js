@@ -7,17 +7,14 @@ import {
 } from 'react-router-dom';
 
 import {connect} from 'react-redux';
-
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
-
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
-
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
-
 import './App.css';
+import MessageDetail from '../Messages/MessageDetail';
 
 class App extends Component {
   componentDidMount () {
@@ -56,6 +53,11 @@ class App extends Component {
               component={InfoPage}
             />
             {/* If none of the other routes matched, we will show a 404. */}
+            <ProtectedRoute
+              exact 
+              path="/MessageDetail"
+              component={MessageDetail}
+            />
             <Route render={() => <h1>404</h1>} />
           </Switch>
           <Footer />
