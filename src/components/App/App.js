@@ -55,7 +55,7 @@ class App extends Component {
             {/* If none of the other routes matched, we will show a 404. */}
             <ProtectedRoute
               exact 
-              path="/MessageDetail"
+              path="/message/:id"
               component={MessageDetail}
             />
             <Route render={() => <h1>404</h1>} />

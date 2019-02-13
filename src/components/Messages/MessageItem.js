@@ -16,21 +16,19 @@ class MessageItem extends Component {
 
   cardClick = () => {
       console.log('Card Click');
-      
-
   }
         
     render() {
         return (
             <Card className="messageCard">
-            <Link className="messageLink" to="/MessageDetail">
+            <Link className="messageLink" to="/MessageDetail" >  { /*{{pathname: `message/${message.headline}`, query: { id: message.mess_id }}}> */}
             <CardActions onClick={this.cardClick}>
             <CardContent>
               <Typography variant="h6" className="headline">
                 {this.props.message.headline}
               </Typography>
               <Typography className="dateUser">
-                {this.props.message.date}, User:{this.props.message.user_id}
+                {this.props.message.date}, {this.props.message.username} 
               </Typography>
             </CardContent>
             
@@ -38,8 +36,9 @@ class MessageItem extends Component {
             </CardActions>
             </Link>
           </Card>
-        );
+        )
     }
+        
 }
 
 
