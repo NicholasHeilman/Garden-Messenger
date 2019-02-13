@@ -7,6 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 // import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { Link } from 'react-router-dom';
+import moment from 'moment'
 
 
 //page will display each message on a card that can be clicked  
@@ -28,7 +29,7 @@ class MessageItem extends Component {
                 {this.props.message.headline}
               </Typography>
               <Typography className="dateUser">
-                {this.props.message.date}, {this.props.message.username} 
+              {this.props.message.username}, {moment(this.props.message.date).format("MMM Do YY")}
               </Typography>
             </CardContent>
             
