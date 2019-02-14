@@ -34,7 +34,7 @@ class MessageItem extends Component {
 
       {/* Display the date stamp and user for the message */}
               <Typography className="dateUser">
-              {this.props.message.username}, {moment(this.props.message.date).format("MMM Do YY")}
+              {this.props.message.username}, {moment(this.props.message.date).format("MMM Do YYYY")}
               </Typography>
 
 

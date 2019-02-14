@@ -11,7 +11,7 @@ router.get('/',  (req, res) => {
         pool.query(queryText)
       .then(results => res.send(results.rows))
       .catch(error => {
-            console.log('Get Error ', error);
+            console.log('Get Message Router Error ', error);
             res.sendStatus(500);
             res.send(req.user);
         })
@@ -55,7 +55,7 @@ router.post('/', (req, res) => {
   pool.query(queryText, queryValues)
     .then(() => { res.sendStatus(201); })
     .catch((error) => {
-      console.log('POST Error', error);
+      console.log('POST Message Router Error', error);
       res.sendStatus(500);
     })
     } else {
