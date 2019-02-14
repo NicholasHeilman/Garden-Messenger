@@ -27,6 +27,7 @@ class App extends Component {
     return (
       <Router>
         <div>
+          {/* Imports the DrawerLeft nav bar  */}
         <DrawerLeft />
           {/* <Nav /> */}
           <Switch>

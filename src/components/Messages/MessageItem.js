@@ -11,8 +11,6 @@ import moment from 'moment'
 
 
 //page will display each message on a card that can be clicked  
-
-
 class MessageItem extends Component {
 
   cardClick = () => {
@@ -23,17 +21,25 @@ class MessageItem extends Component {
     render() {
         return (
             <Card className="messageCard">
-            <Link className="messageLink" to="/MessageDetail" > 
+      {/* Link to the detail view of the message */}
+            <Link className="messageLink" to={`/MessageDetail/${this.props.message.mess_id}`}  > 
             <CardActions onClick={this.cardClick}>
+         
             <CardContent>
+
+      {/* Display the headline of the message */}
               <Typography variant="h6" className="headline">
                 {this.props.message.headline}
               </Typography>
+
+      {/* Display the date stamp and user for the message */}
               <Typography className="dateUser">
               {this.props.message.username}, {moment(this.props.message.date).format("MMM Do YY")}
               </Typography>
+
+
             </CardContent>
-            
+                {/* Add a button to the card  */}
               {/* <Button onClick={this.cardClick} size="small">Learn More</Button> */}
             </CardActions>
             </Link>

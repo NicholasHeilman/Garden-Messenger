@@ -15,18 +15,8 @@ class Messages extends Component {
         // Saga for the axios.get 
         this.props.dispatch({ type: 'GET_MESSAGES' });
     }
-        // GET  request for the message to display on the dashboard
-    // getMessageList = () => {
-    //     axios.get('/api/messages')
-    //     .then( response => {
-    //         console.log(response.data);
-    //         // this.setState({
-    //         //     messageList:  response.data 
-    //         // })
-        
-    //     })
-    // };// end Message Get
 
+    
     addMessage = () => {
         console.log('add Message');
 

@@ -14,9 +14,9 @@ import AddNew from './AddNewMessageReducer';
 const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
   loginMode, // will have a value of 'login' or 'registration' to control which screen is shown
-  user,
-  message, // will have an id and username if someone is logged in
-  AddNew,
+  user,   // will have an id and username if someone is logged in
+  message,  // from messageReducer.js
+  AddNew,  //From AddNewMessageReducer.js
 });
 
 export default rootReducer;

@@ -14,7 +14,7 @@ class NewMessageForm extends Component {
         };
         console.log(this.state);
     }
-
+    //  handles the change for the input fields
     changeInput = (event) => {
         const attributeName = event.target.name;
         const changeValue = event.target.value;
@@ -23,7 +23,7 @@ class NewMessageForm extends Component {
             [attributeName]: changeValue, 
         });
     }
-
+    //  handles the submit form click
     submit = (event) => {
         event.preventDefault();
         const action = {
@@ -34,10 +34,6 @@ class NewMessageForm extends Component {
         // this.refs.headline = '';
         // this.refs.message = '';
     }
-
- 
-
-    
 
     render() {
         return (
@@ -53,7 +49,6 @@ class NewMessageForm extends Component {
 }
 
 // const mapReduxStoreToProps = (reduxStore) => ({ reduxStore });
-
 const mapReduxStoreToProps = reduxStore => ({
     ...reduxStore,
     user: reduxStore.user,
