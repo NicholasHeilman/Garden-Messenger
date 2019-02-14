@@ -15,6 +15,7 @@ import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import './App.css';
 import MessageDetail from '../Messages/MessageDetail';
+import NewMessageForm from '../Messages/NewMessageForm';
 
 class App extends Component {
   componentDidMount () {
@@ -52,12 +53,19 @@ class App extends Component {
               path="/info"
               component={InfoPage}
             />
-            {/* If none of the other routes matched, we will show a 404. */}
+            {/* route for Add New message */}
+            <ProtectedRoute
+              exact 
+              path="/AddNew"
+              component={NewMessageForm}
+            />
+            {/*route for the detailed message view  */}
             <ProtectedRoute
               exact 
               path="/message/:id"
               component={MessageDetail}
             />
+            {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
           </Switch>
           <Footer />

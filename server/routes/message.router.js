@@ -21,15 +21,17 @@ router.get('/',  (req, res) => {
 });
     
 //  //router for GET DetailMessage
-router.get('/id', (req, res) => {
+router.get('/:id', (req, res) => {
   if (req.isAuthenticated()) {
+    console.log('req.user:', req.user)
   pool.query(`SELECT * FROM "message"
               JOIN "comments"
               ON "mess_id" = "message_id"
               WHERE "mess_id" = $1;`,
-                [require.params.id, req.user.id])
-      .then(results => res.send(results.rows))
-      .catch(error => {
+              [req.param.mess_id])
+      .then((result) => {
+          res.send(result.rows);
+      }).catch((error) => {
         console.log('GET Detail Error', error);
         res.sendStatus(500);
       })
@@ -38,27 +40,28 @@ router.get('/id', (req, res) => {
   }
 }); // end GET DetailMessage
 
-// //POst router for new meassage 
-// router.post('/', (req, res) => {
-//   if (req.isAuthenticated()) {
-//   const newMessage = req.body;
-//   const queryText = `INSERT INTO "message" ("headline", "message", "user_id" )
-//                     VALUES ($1, $2, $3)`;
-//   const queryValues = [
-//     newMessage.headline,
-//     newMessage.message,
-//     newMessage.user_id,
-//   ];
-//   pool.query(queryText, queryValues)
-//     .then(() => { res.sendStatus(201); })
-//     .catch((err) => {
-//       console.log('Error completing SELECT plant query', err);
-//       res.sendStatus(500);
-//     })
-//     } else {
-//       res.sendStatus(403);
-//   }
-// }); // end POST Message request
+// //POST router for new meassage 
+router.post('/', (req, res) => {
+  if (req.isAuthenticated()) {
+  const newMessage = req.body;
+  console.log(req.body);
+  const queryText = `INSERT INTO "message" ("headline", "message", "user_id" )
+                    VALUES ($1, $2, $3)`;
+  const queryValues = [
+                     newMessage.headline,
+                     newMessage.message,
+                     newMessage.user_id,
+  ];
+  pool.query(queryText, queryValues)
+    .then(() => { res.sendStatus(201); })
+    .catch((error) => {
+      console.log('POST Error', error);
+      res.sendStatus(500);
+    })
+    } else {
+      res.sendStatus(403);
+  }
+}); // end POST Message request
 
 
 module.exports = router;

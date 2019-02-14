@@ -9,7 +9,7 @@ class MessageDetail extends Component {
 
     componentDidMount(){
         // Saga for the axios.get 
-        this.props.dispatch({ type: 'GET_MESSAGES' });
+        // this.props.dispatch({ type: 'GET_MESSAGES' });
     }
 
    
@@ -18,12 +18,10 @@ class MessageDetail extends Component {
 
         return (
             <div>
-                {JSON.stringify(this.props.reduxStore.message)}
+                {/* {JSON.stringify(this.props.reduxStore.message)} */}
                 <h3>Message Details</h3>
                 <ul>
-                    {this.props.reduxStore.message.map(message =>
-                         (<li> {this.props.reduxStore.message.mess_id} </li>)
-                        )}
+                   
                 </ul>
             </div>
         )

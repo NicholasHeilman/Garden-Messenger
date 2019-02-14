@@ -17,12 +17,13 @@ class MessageItem extends Component {
 
   cardClick = () => {
       console.log('Card Click');
+      console.log(this.props.message.mess_id)
   }
         
     render() {
         return (
             <Card className="messageCard">
-            <Link className="messageLink" to="/MessageDetail" >  { /*{{pathname: `message/${message.headline}`, query: { id: message.mess_id }}}> */}
+            <Link className="messageLink" to="/MessageDetail" > 
             <CardActions onClick={this.cardClick}>
             <CardContent>
               <Typography variant="h6" className="headline">
