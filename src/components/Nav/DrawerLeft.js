@@ -20,6 +20,9 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 // import MailIcon from '@material-ui/icons/Mail';
 import { Link } from 'react-router-dom';
 import './Nav.css';
+// import LogOutButton from '../LogOutButton/LogOutButton';
+import { connect } from 'react-redux';
+
 
 const drawerWidth = 240;
 
@@ -93,6 +96,12 @@ class PersistentDrawerLeft extends React.Component {
     this.setState({ open: false });
   };
 
+  LogOutButton = () => {
+    console.log('LogOut Click');
+    this.props.dispatch({ type: 'LOGOUT' });
+    this.handleDrawerClose();
+  }
+
   render() {
     const { classes, theme } = this.props;
     const { open } = this.state;
@@ -136,7 +145,8 @@ class PersistentDrawerLeft extends React.Component {
           </div>
           <Divider />
           <List>
-            {[<Link className="drawer-link" to="/home" onClick={this.handleDrawerClose}>Home</Link>, 'Add New'].map((text, index) => (
+                  {[<Link className="drawer-link" to="/home" onClick={this.handleDrawerClose}>Home</Link>,
+                  <Link className="drawer-link" to="/AddNew" onClick={this.handleDrawerClose}>Add New Message</Link> ].map((text, index) => (
               <ListItem button key={text}>
                 <ListItemIcon>{index % 2 === 0 ?
                     <Link className="drawer-link" to="/home" onClick={this.handleDrawerClose}> 
@@ -156,7 +166,7 @@ class PersistentDrawerLeft extends React.Component {
           </List>
           <Divider />
           <List>
-            {['Admin', 'Log out'].map((text, index) => (
+            {['Admin', 'About', 'Log out'].map((text, index) => (
               <ListItem button key={text}>
                 <ListItemIcon>{index % 2 === 0 ? 
                     <InboxIcon /> :  
@@ -164,7 +174,8 @@ class PersistentDrawerLeft extends React.Component {
                             <path d="M16,17V14H9V10H16V7L21,12L16,17M14,2A2,2 0 0,1 16,4V6H14V4H5V20H14V18H16V20A2,2 0 0,1 14,22H5A2,2 0 0,1 3,20V4A2,2 0 0,1 5,2H14Z" /> 
                         </svg>}
                 </ListItemIcon>
-                <ListItemText primary={text} />
+               
+                <ListItemText primary={text} onClick={this.LogOutButton} />
               </ListItem>
             ))}
           </List>
@@ -186,4 +197,4 @@ PersistentDrawerLeft.propTypes = {
   theme: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles, { withTheme: true })(PersistentDrawerLeft);
+export default connect()(withStyles(styles, { withTheme: true })(PersistentDrawerLeft));

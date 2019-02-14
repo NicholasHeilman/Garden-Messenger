@@ -31,7 +31,6 @@ class NewMessageForm extends Component {
             payload: this.state,
         }
         this.props.dispatch(action);
-        this.props.dispatch(action);
         // this.refs.headline = '';
         // this.refs.message = '';
     }

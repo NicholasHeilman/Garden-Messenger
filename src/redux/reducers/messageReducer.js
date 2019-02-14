@@ -1,6 +1,6 @@
 const messageReducer = (state = [], action) => {
     switch(action.type) {
-        case 'SET_MESSAGES':
+        case 'ADD_NEW_MESSAGE':
             return action.payload;
         default:
             return state;
