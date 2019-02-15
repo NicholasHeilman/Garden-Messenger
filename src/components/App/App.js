@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 
 import {connect} from 'react-redux';
-// import Nav from '../Nav/Nav';
+import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 import AboutPage from '../AboutPage/AboutPage';
@@ -16,7 +16,7 @@ import InfoPage from '../InfoPage/InfoPage';
 import './App.css';
 import MessageDetail from '../Messages/MessageDetail';
 import NewMessageForm from '../Messages/NewMessageForm';
-import DrawerLeft from '../Nav/DrawerLeft';
+// import DrawerLeft from '../Nav/DrawerLeft';
 import Admin from '../Admin/Admin';
 
 class App extends Component {
@@ -29,8 +29,8 @@ class App extends Component {
       <Router>
         <div>
           {/* Imports the DrawerLeft nav bar  */}
-        <DrawerLeft />
-          {/* <Nav /> */}
+        {/* <DrawerLeft /> */}
+          <Nav />
           <Switch>
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
             <Redirect exact from="/" to="/home" />

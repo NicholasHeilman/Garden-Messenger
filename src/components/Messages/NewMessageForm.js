@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 class NewMessageForm extends Component {
     constructor(props){
@@ -28,6 +29,7 @@ class NewMessageForm extends Component {
             payload: this.state,
         }
         this.props.dispatch(action);
+        this.props.history.push('/home');
         // this.refs.headline = '';
         // this.refs.message = '';
     }
@@ -38,7 +40,8 @@ class NewMessageForm extends Component {
                 <form onSubmit={this.submit} id="form" ref="form">
                     <input onChange={this.changeInput} type="text" name="headline" placeholder="headline" ref="form" required />
                     <input onChange={this.changeInput} type="text" name="message" placeholder="message" ref="form" required />
-                    <input type="submit" onClick={this.clearForm}/>
+                    <input type="submit" to="/home" />
+                 
                 </form>
             </div>
         );
