@@ -14,7 +14,7 @@ function* fetchMessages(action) {
         yield put({ type: 'ADD_NEW_MESSAGE', payload: response.data});
         console.log(response.data);
         } catch (error) {
-            console.log('FETCH Message Error', error);
+            console.log('GET Error', error);
         }
     }// end Message Get
 
@@ -24,7 +24,7 @@ function* addNewMessage(action){
         const newAction = {type: 'GET_MESSAGES'};
         yield put(newAction);
     }catch (error) {
-        console.log('POST Message Error', error);
+        console.log('GET Error', error);
     }
 }//end addToDashboard
 

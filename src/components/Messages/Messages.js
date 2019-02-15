@@ -13,7 +13,7 @@ class Messages extends Component {
 
     componentDidMount(){
         // Saga for the axios.get 
-        this.props.dispatch({type: 'GET_MESSAGES' });
+        this.props.dispatch({type: 'FETCH_MESSAGES' });
     }
 
     

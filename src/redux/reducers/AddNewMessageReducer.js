@@ -1,10 +1,10 @@
-const AddNewMessageReducer = (state = [], action) => {
-    switch(action.type) {
-        case 'SET_MESSAGES':
-            return action.payload;
-        default:
-            return state; 
-    }
-}
+// const AddNewMessageReducer = (state = [], action) => {
+//     switch(action.type) {
+//         case 'SET_MESSAGES':
+//             return action.payload;
+//         default:
+//             return state; 
+//     }
+// }
 
-export default AddNewMessageReducer;
+// export default AddNewMessageReducer;
