@@ -25,7 +25,7 @@ class Messages extends Component {
     render() {
         return (
             <div>
-                {JSON.stringify(this.props.reduxStore.message)}
+                {/* {JSON.stringify(this.props.reduxStore.message)} */}
                 {this.props.reduxStore.message.map(message =>
                      <MessageItem key={message.mess_id} message={message} />
                 )}

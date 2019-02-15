@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+
 
 class NewMessageForm extends Component {
     constructor(props){
@@ -25,11 +25,12 @@ class NewMessageForm extends Component {
     submit = (event) => {
         event.preventDefault();
         const action = {
-            type: 'ADD_NEW_MESSAGE',
+            type: 'ADD_TO_MESSAGE',
             payload: this.state,
         }
         this.props.dispatch(action);
         this.props.history.push('/home');
+        this.props.dispatch({type: 'FETCH_MESSAGES' });
         // this.refs.headline = '';
         // this.refs.message = '';
     }

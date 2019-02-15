@@ -39,7 +39,8 @@ import axios from 'axios';
 function* fetchMessage(action) {
     try {
         const response = yield axios.get('/api/messages');
-        yield put({ type: 'SET_MESSAGES', payload: response.data });
+        yield put({ type: 'SET_MESSAGE', payload: response.data });
+        console.log(response.data);
     } catch (error) {
         console.log('Error with fetching message:', error);
     }
@@ -72,8 +73,8 @@ function* deleteFromMessage(action) {
 }
 
 function* messageSaga() {
-    yield takeLatest('FETCH_MESSAGE', fetchMessage);
-    yield takeLatest('FETCH_MESSAGE', addToMessage);
+    yield takeLatest('FETCH_MESSAGES', fetchMessage);
+    yield takeLatest('ADD_TO_MESSAGE', addToMessage);
     yield takeLatest('DELETE_FROM_MESSAGES', deleteFromMessage);
 }
 
