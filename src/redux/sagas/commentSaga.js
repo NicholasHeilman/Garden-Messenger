@@ -12,7 +12,7 @@ function* fetchComments(action) {
 }
 
 function* commentSaga() {
-    yield takeEvery('FETCH_MESSAGE_COMMENTS', fetchComments);
+    yield takeEvery('FETCH_MESSAGE_COMMENT', fetchComments);
 }
 
 export default commentSaga;

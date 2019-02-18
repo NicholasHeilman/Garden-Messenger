@@ -3,15 +3,18 @@ import { connect } from 'react-redux';
 // import axios from "axios";
 
 class MessageDetail extends Component {
-    state = {
-        messageList: [],
-        commentList: [],
-        personList: [],
+    constructor(props){
+        super(props)
+        this.state = {
+            messageList: [],
+            commentList: [],
+            personList: [],
     }
+}
 
     fetchComment = () => {
         const id = this.props.match.params.id;
-        const action = { type: 'FETCH_MESSAGE_COMMENTS', payload: id };
+        const action = { type: 'FETCH_MESSAGE_COMMENT', payload: id };
         this.props.dispatch(action);
     }
 
