@@ -12,6 +12,14 @@ import moment from 'moment'
 
 //page will display each message on a card that can be clicked  
 class MessageItem extends Component {
+  
+  // componentDidUpdate(prevProps) {
+  //   //get Customer Details only if props has changed
+  //   //(props is the input) 
+  //       if (this.props.val !== prevProps.val) {
+  //         this.getCustomerDetails(this.props.val)
+  //       }
+  //     }
 
   cardClick = () => {
       console.log('Card Click');
@@ -19,31 +27,44 @@ class MessageItem extends Component {
   }
         
     render() {
+
+      let MessageItems = [];
+        for(let i = 0; i < this.props.message.length; i =+1){
+          let item= this.props.message[i];
+          let itemRow = (<MessageItem key={i} item={item} />);
+          MessageItems.push(itemRow);
+        }
+
+
         return (
-            <Card className="messageCard">
-      {/* Link to the detail view of the message */}
-            <Link className="messageLink" to={`/MessageDetail/${this.props.message.mess_id}`}  > 
-            <CardActions onClick={this.cardClick}>
+
+          <div>
+            {MessageItems}
+          </div>
+      //       <Card className="messageCard">
+      // {/* Link to the detail view of the message */}
+      //       <Link className="messageLink" to={`/MessageDetail/${this.props.message.mess_id}`}  > 
+      //       <CardActions onClick={this.cardClick}>
          
-            <CardContent>
+      //       <CardContent>
 
-      {/* Display the headline of the message */}
-              <Typography variant="h6" className="headline">
-                {this.props.message.headline}
-              </Typography>
+      // {/* Display the headline of the message */}
+      //         <Typography variant="h6" className="headline">
+      //           {this.props.message.headline}
+      //         </Typography>
 
-      {/* Display the date stamp and user for the message */}
-              <Typography className="dateUser">
-              {this.props.message.username}, {moment(this.props.message.date).format("MMM Do YYYY")}
-              </Typography>
+      // {/* Display the date stamp and user for the message */}
+      //         <Typography className="dateUser">
+      //         {this.props.message.username}, {moment(this.props.message.date).format("MMM Do YYYY")}
+      //         </Typography>
 
 
-            </CardContent>
-                {/* Add a button to the card  */}
-              {/* <Button onClick={this.cardClick} size="small">Learn More</Button> */}
-            </CardActions>
-            </Link>
-          </Card>
+      //       </CardContent>
+      //           {/* Add a button to the card  */}
+      //         {/* <Button onClick={this.cardClick} size="small">Learn More</Button> */}
+      //       </CardActions>
+      //       </Link>
+      //     </Card>
         )
     }
         
