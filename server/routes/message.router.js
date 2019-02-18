@@ -24,10 +24,10 @@ router.get('/',  (req, res) => {
 router.get('/:id', (req, res) => {
   if (req.isAuthenticated()) {
     console.log('req.user:', req.user)
-  pool.query(`SELECT * FROM "message"
-              JOIN "comments"
+  pool.query(`SELECT * FROM "comments"
+              JOIN "message"
               ON "mess_id" = "message_id"
-              WHERE "mess_id" = $1;`,
+              WHERE "comments"."id" = $1;`,
               [req.param.mess_id])
       .then((result) => {
           res.send(result.rows);

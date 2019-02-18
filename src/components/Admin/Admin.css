@@ -1,0 +1,10 @@
+.table {
+    width: 400px;
+}
+
+
+.PersonTable {
+    width: 400px;
+    overflow-x: auto;
+    /* table-layout: fixed; */
+}

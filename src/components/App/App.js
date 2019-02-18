@@ -16,7 +16,7 @@ import InfoPage from '../InfoPage/InfoPage';
 import './App.css';
 import MessageDetail from '../Messages/MessageDetail';
 import NewMessageForm from '../Messages/NewMessageForm';
-import DrawerLeft from '../Nav/DrawerLeft';
+// import DrawerLeft from '../Nav/DrawerLeft';
 import Admin from '../Admin/Admin';
 
 class App extends Component {

@@ -3,7 +3,7 @@ import loginSaga from './loginSaga';
 import registrationSaga from './registrationSaga';
 import userSaga from './userSaga';
 import messageSaga from './messageSaga';
-// import personSaga from './personSaga';
+import personSaga from './personSaga';
 import commentSaga from './commentSaga';
 
 // rootSaga is the primary saga.
@@ -20,6 +20,6 @@ export default function* rootSaga() {
     userSaga(),
     messageSaga(),
     commentSaga(),
-    // personSaga(),
+    personSaga(),
   ]);
 }

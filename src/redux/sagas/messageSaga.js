@@ -19,7 +19,7 @@ function* addToMessage(action) {
         const newAction = {type: 'FETCH_MESSAGE'};
         yield put(newAction);
     } catch (error) {
-        console.log(`Error in adding message: ${error}`);
+        console.log('Error in adding message', error);
     }
 
 } // end 

@@ -7,9 +7,9 @@ import './Messages.css';
 
 
 class Messages extends Component {
-    state = {
-        messageList: [],
-    }
+    // state = {
+    //     messageList: [],
+    // }
 
     componentDidMount(){
         // Saga for the axios.get 
@@ -39,9 +39,9 @@ class Messages extends Component {
     }
 }
 
-const mapReduxStoreToProps = (reduxStore) => ({ 
-    reduxStore: reduxStore 
+// const mapReduxStoreToProps = (reduxStore) => ({ 
+//     reduxStore: reduxStore 
  
-});
-
+// });
+const mapReduxStoreToProps = (reduxStore) => ({ reduxStore });
 export default connect(mapReduxStoreToProps)(Messages);
