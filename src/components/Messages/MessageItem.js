@@ -41,7 +41,7 @@ class MessageItem extends Component {
          
             <Card className="messageCard">
       {/* Link to the detail view of the message */}
-            <Link className="messageLink" to={`/MessageDetail/${this.props.message.mess_id}`}  > 
+            <Link className="messageLink" to={`/message/${this.props.message.mess_id}`}  > 
             <CardActions onClick={this.cardClick}>
          
             <CardContent>
