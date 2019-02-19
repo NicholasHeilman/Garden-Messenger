@@ -1,4 +1,4 @@
-.table {
+.PersonTable {
     width: 400px;
     overflow-x: auto;
     height: 220px;
@@ -18,9 +18,21 @@
     display: flex;
 }
 
+.MessageTable{
+    width: 400px;
+    overflow-x: auto;
+    height: 220px;
+}
 .MTHead {
     position: sticky;
-    top: 0,
+    top: 0;
+    z-index: 10;
+}
+
+.MessageTableHeadRow{
+    background-color: rgb(231, 231, 231);
+    position: sticky;
+    top: 0;
 }
 
 .MessageTableBody {

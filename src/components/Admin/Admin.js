@@ -51,7 +51,7 @@ class Admin extends Component {
         return (
             <div className="container">
             <h3>Users </h3>
-            <div className="table">
+            <div className="PersonTable">
                 <Table>
                     <TableHead className="PTHead">
                         <TableRow>
@@ -73,9 +73,10 @@ class Admin extends Component {
                 </Table> 
                 </div>
                 <h3>Messages</h3>   
-                <div className="table"> 
+                <div class="MessageTable"> 
                 <Table className="MessageTable">
-                    <TableHead className="MTHead">
+                    <TableHead >
+                    <div class="MessageTableHeadRow">
                         <TableRow >
                             <TableCell>Message Headline</TableCell>
                             <TableCell>Date</TableCell>
@@ -89,10 +90,13 @@ class Admin extends Component {
                                 </Button>
                             </TableCell>
                         </TableRow>
+                        </div>
                     </TableHead>
+                    <div class="MessageTableBody"> 
                     <TableBody className="MessageTableBody">
                             {messageTable}
                     </TableBody>
+                    </div>
                 </Table>     
             </div>
             </div>

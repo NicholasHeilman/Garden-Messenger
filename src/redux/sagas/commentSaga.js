@@ -4,7 +4,7 @@ import { put, takeEvery } from 'redux-saga/effects';
 function* fetchComments(action) {
     try {
         const response = yield axios.get(`/api/messages/${action.payload}`);
-        yield put ({type: 'SET_MESSAGE_COMMENT', payload: response.data});
+        yield put ({type: 'SET_COMMENT', payload: response.data});
         console.log(response.data);
     } catch (error){
         console.log('GET Comment Error', error);
@@ -12,7 +12,7 @@ function* fetchComments(action) {
 }
 
 function* commentSaga() {
-    yield takeEvery('FETCH_MESSAGE_COMMENT', fetchComments);
+    yield takeEvery('FETCH_COMMENT', fetchComments);
 }
 
 export default commentSaga;

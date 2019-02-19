@@ -1,6 +1,6 @@
 const commentReducer = (state = [], action) => {
     switch(action.type) {
-        case 'SET_MESSAGE_COMMENT':
+        case 'SET_COMMENT':
             return action.payload;
         default:
             return state;

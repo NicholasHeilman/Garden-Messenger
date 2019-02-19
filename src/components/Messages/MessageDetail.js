@@ -13,31 +13,28 @@ class MessageDetail extends Component {
 }
 
     fetchComment = () => {
-        const id = this.props.match.params.id;
-        const action = { type: 'FETCH_MESSAGE_COMMENT', payload: id };
+        const id = this.props.reduxStore.message.mess_id;
+        console.log(this.prop);
+        const action = { type: 'FETCH_COMMENT', payload: id };
         this.props.dispatch(action);
     }
 
     componentDidMount() {
+        
+        this.props.dispatch({ type: 'FETCH_MESSAGES' });
+        this.props.dispatch({ type: 'FETCH_PERSON' });
         this.fetchComment();
-        this.props.dispatch({ type: 'GET_MESSAGES' });
+        // this.props.dispatch({ type: 'FETCH_COMMENT', payload: id })
     }
 
-    // componentDidUpdate(prevProps, prevState) {
-    //     // Note: I used some example code from stackoverflow.com for this check on URL changes
-    //     // https://stackoverflow.com/questions/52252353/re-render-same-component-on-url-change-in-react
-    //     // user: c6754
-    //     if (this.props.match.params.id !== prevProps.match.params.id) {
-    //         this.fetchHop();
-    //     } else if (this.props.reduxStore.focusHop !== prevProps.reduxStore.focusHop) {
-    //         this.setState(this.props.reduxStore.focusHop);
-    //     }
-    // }
+
+
    
     render() {
      
         return (
                 <div>
+                    {JSON.stringify(this.props.reduxStore.message)}
                     {/* <p className="mess_headline">{messsageDetails.headline}</p>
                     <p className="mess_desc">{messsageDetails.message}</p> */}
                 </div> 

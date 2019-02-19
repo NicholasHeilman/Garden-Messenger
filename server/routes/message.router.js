@@ -27,7 +27,7 @@ router.get('/:id', (req, res) => {
   pool.query(`SELECT * FROM "comments"
               JOIN "message"
               ON "mess_id" = "message_id"
-              WHERE "comments"."id" = $1;`,
+              WHERE "mess_id" = $1;`,
               [req.param.mess_id])
       .then((result) => {
           res.send(result.rows);

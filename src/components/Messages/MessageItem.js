@@ -8,6 +8,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import { Link } from 'react-router-dom';
 import moment from 'moment'
+import { connect } from 'react-redux';
 
 
 //page will display each message on a card that can be clicked  
@@ -71,4 +72,5 @@ class MessageItem extends Component {
 
 
   
-export default MessageItem;
+const mapReduxStoreToProps = (reduxStore) => ({ reduxStore });
+export default connect(mapReduxStoreToProps)(MessageItem);
