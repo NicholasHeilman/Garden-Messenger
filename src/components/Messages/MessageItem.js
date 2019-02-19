@@ -8,10 +8,19 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import { Link } from 'react-router-dom';
 import moment from 'moment'
+import { connect } from 'react-redux';
 
 
 //page will display each message on a card that can be clicked  
 class MessageItem extends Component {
+  
+  // componentDidUpdate(prevProps) {
+  //   //get Customer Details only if props has changed
+  //   //(props is the input) 
+  //       if (this.props.val !== prevProps.val) {
+  //         this.getCustomerDetails(this.props.val)
+  //       }
+  //     }
 
   cardClick = () => {
       console.log('Card Click');
@@ -19,10 +28,21 @@ class MessageItem extends Component {
   }
         
     render() {
+
+      // let MessageItems = [];
+      //   for(let i = 0; i < this.props.message.length; i =+1){
+      //     let item= this.props.message[i];
+      //     let itemRow = (<MessageItem key={i} item={item} />);
+      //     MessageItems.push(itemRow);
+      //   }
+
+
         return (
+          // <div>
+         
             <Card className="messageCard">
       {/* Link to the detail view of the message */}
-            <Link className="messageLink" to={`/MessageDetail/${this.props.message.mess_id}`}  > 
+            <Link className="messageLink" to={`/message/${this.props.message.mess_id}`}  > 
             <CardActions onClick={this.cardClick}>
          
             <CardContent>
@@ -44,6 +64,7 @@ class MessageItem extends Component {
             </CardActions>
             </Link>
           </Card>
+          // </div>
         )
     }
         
@@ -51,4 +72,5 @@ class MessageItem extends Component {
 
 
   
-export default MessageItem;
+const mapReduxStoreToProps = (reduxStore) => ({ reduxStore });
+export default connect(mapReduxStoreToProps)(MessageItem);

@@ -1,11 +1,11 @@
 
 .addMessageBtn {
-    justify-content: flex;
-    height: 55px;
-    width: 55px;
+    margin: 0px;
+    top: auto;
+    right: 165px;
+    bottom: 20px;
+    left: auto;
+    position: fixed;
 
 }
 
-.MessageBtn {
-    padding: 20px;
-}

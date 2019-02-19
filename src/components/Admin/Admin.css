@@ -1,0 +1,42 @@
+.PersonTable {
+    width: 400px;
+    overflow-x: auto;
+    height: 220px;
+}
+.sticky {
+    
+}
+.PTHead {
+    
+    position: sticky;
+    top: 0,
+}
+
+.PersonTableBody {
+    overflow-x: scroll;
+    overflow-y: scroll;
+    display: flex;
+}
+
+.MessageTable{
+    width: 400px;
+    overflow-x: auto;
+    height: 220px;
+}
+.MTHead {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.MessageTableHeadRow{
+    background-color: rgb(207, 207, 207);
+    position: sticky;
+    top: 0;
+}
+
+.MessageTableBody {
+  
+    overflow-x: scroll;
+    overflow-y: scroll;
+}

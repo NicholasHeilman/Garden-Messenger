@@ -3,40 +3,45 @@ import { connect } from 'react-redux';
 // import axios from "axios";
 
 class MessageDetail extends Component {
-    // state = {
-    //     messageList: [],
-    // }
+    constructor(props){
+        super(props)
+        this.state = {
+            messageList: [],
+            commentList: [],
+            personList: [],
+    }
+}
 
-    // componentDidMount(){
-    //     // Saga for the axios.get 
-    //     // this.props.dispatch({ type: 'GET_MESSAGES' });
-    // }
+    fetchComment = () => {
+        const id = this.props.reduxStore.message.mess_id;
+        console.log(this.prop);
+        const action = { type: 'FETCH_COMMENT', payload: id };
+        this.props.dispatch(action);
+    }
+
+    componentDidMount() {
+        
+        this.props.dispatch({ type: 'FETCH_MESSAGES' });
+        this.props.dispatch({ type: 'FETCH_PERSON' });
+        this.fetchComment();
+        // this.props.dispatch({ type: 'FETCH_COMMENT', payload: id })
+    }
+
+
 
    
-
     render() {
-        let messsageDetails = this.props.message.filter( m => m.id === this.props.params.id)[0];
+     
         return (
                 <div>
-                    <p className="mess_headline">{messsageDetails.headline}</p>
-                    <p className="mess_desc">{messsageDetails.message}</p>
+                    {JSON.stringify(this.props.reduxStore.message)}
+                    {/* <p className="mess_headline">{messsageDetails.headline}</p>
+                    <p className="mess_desc">{messsageDetails.message}</p> */}
                 </div> 
             );
         }
 
     }
-//         return (
-//             <div>
-//                 {/* {JSON.stringify(this.props.reduxStore.message)} */}
-//                 <h3>Message Details</h3>
-//                 <ul>
-                   
-//                 </ul>
-//             </div>
-//         )
-//     }
-// }
-
 
 const mapReduxStoreToProps = (reduxStore) => ({ 
     reduxStore: reduxStore 
