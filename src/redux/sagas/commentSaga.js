@@ -3,7 +3,7 @@ import { put, takeEvery } from 'redux-saga/effects';
 
 function* fetchComments(action) {
     try {
-        const response = yield axios.get(`/api/messages/${action.payload}`);
+        const response = yield axios.get(`/api/messages/:id`);
         yield put ({type: 'SET_COMMENT', payload: response.data});
         console.log(response.data);
     } catch (error){

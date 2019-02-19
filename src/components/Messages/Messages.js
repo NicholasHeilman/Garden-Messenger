@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import MessageItem from './MessageItem.js';
 import './Messages.css';
+import AddCircle from '@material-ui/icons/AddCircle';
 
 
 class Messages extends Component {
@@ -29,10 +30,8 @@ class Messages extends Component {
                 <div className="MessageBtn" >
                     <Link to="/AddNew">
                         <button className="addMessageBtn" onClick={this.addMessage}>
-                        <img src="https://img.icons8.com/material/72/000000/plus.png" alt="" />
-{/* //                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-//                         <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
-//                         <path d="M0 0h24v24H0z" fill="none"/></svg> */}
+                        <AddCircle style={{ fontSize: 48 }}/>
+                       
                         </button>
                     </Link>
                 </div>

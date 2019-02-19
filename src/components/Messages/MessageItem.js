@@ -23,7 +23,6 @@ class MessageItem extends Component {
   //     }
 
   cardClick = () => {
-      console.log('Card Click');
       console.log(this.props.message.mess_id)
   }
         
@@ -43,7 +42,7 @@ class MessageItem extends Component {
             <Card className="messageCard">
       {/* Link to the detail view of the message */}
             <Link className="messageLink" to={`/message/${this.props.message.mess_id}`}  > 
-            <CardActions onClick={this.cardClick}>
+            <CardActions onClick={this.cardClick} mess_id={this.props.message.mess_id}>
          
             <CardContent>
 
@@ -53,7 +52,7 @@ class MessageItem extends Component {
               </Typography>
 
       {/* Display the date stamp and user for the message */}
-              <Typography className="dateUser">
+              <Typography className="UserDate">
               {this.props.message.username}, {moment(this.props.message.date).format("MMM Do YYYY")}
               </Typography>
 
