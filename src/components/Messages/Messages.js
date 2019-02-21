@@ -32,7 +32,6 @@ class Messages extends Component {
                     <Link to="/AddNew">
                         <button className="addMessageBtn" onClick={this.addMessage}>
                         <AddCircle style={{ fontSize: 48 }}/>
-                       
                         </button>
                     </Link>
                 </div>
