@@ -1,6 +1,7 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 // GET for the message display
 router.get('/',  (req, res) => {
@@ -23,10 +24,12 @@ router.get('/',  (req, res) => {
 //  //router for GET DetailMessage
 router.get('/:id', (req, res) => {
   if (req.isAuthenticated()) {
-    console.log('req.user:', req.user)
-  pool.query(`SELECT * FROM "comments"
+    console.log('req.user:', req.params)
+  const queryText = `SELECT * FROM "comments"
               JOIN "message"
-              ON "mess_id" = "message_id";`)
+              ON "mess_id" = "message_id"
+              WHERE mess_id = $1;`;
+      pool.query(queryText, [req.params.id])
       .then((result) => {res.send(result.rows);
       }).catch((error) => {
         console.log('GET Detail Error', error);
@@ -59,6 +62,18 @@ router.post('/', (req, res) => {
       res.sendStatus(403);
   }
 }); // end POST Message request
+
+//Delete Message Router
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
+    const queryText = 'DELETE FROM "message" WHERE "mess_id" = $1';
+    pool.query( queryText, [req.params.id])
+    .then(() => { res.sendStatus(200); })
+    .catch((err) => {
+      console.log('DELETE Error', err)
+      res.sendStatus(500);
+    })
+  });
+
 
 
 module.exports = router;

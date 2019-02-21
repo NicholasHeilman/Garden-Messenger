@@ -13,6 +13,12 @@ import { connect } from 'react-redux';
 
 //page will display each message on a card that can be clicked  
 class MessageItem extends Component {
+    constructor(props){
+      super(props);
+      this.state ={
+        mess_id: '',
+      }
+    }
   
   // componentDidUpdate(prevProps) {
   //   //get Customer Details only if props has changed
@@ -24,6 +30,10 @@ class MessageItem extends Component {
 
   cardClick = () => {
       console.log(this.props.message.mess_id)
+      this.setState({
+        mess_id: this.props.message.mess_id,
+      })
+      console.log(this.state.mess_id)
   }
         
     render() {
@@ -41,7 +51,7 @@ class MessageItem extends Component {
          
             <Card className="messageCard">
       {/* Link to the detail view of the message */}
-            <Link className="messageLink" to={`/message/${this.props.message.mess_id}`}  > 
+            <Link className="messageLink" to={`/message/${this.props.message.mess_id}`} mess_id={this.props.message.mess_id}> 
             <CardActions onClick={this.cardClick} mess_id={this.props.message.mess_id}>
          
             <CardContent>

@@ -10,17 +10,18 @@ import { CardActionArea } from '@material-ui/core';
 
 
 class MessageDetail extends Component {
-//     constructor(props){
-//         super(props)
-//         this.state = {
-//             messageList: [],
-//             commentList: [],
-//             personList: [],
-//     }
-// }
+    constructor(props){
+        super(props)
+        this.state = {
+            messageList: [],
+            commentList: [],
+            personList: [],
+    }
+}
 
     fetchComment = () => {
-        const id = this.props.reduxStore.message.mess_id;
+        const id = this.props.match.params.id;
+        
         const action = { type: 'FETCH_COMMENT', payload: id };
         this.props.dispatch(action);
         // console.log(this.props.message.mess_id);
@@ -40,15 +41,28 @@ class MessageDetail extends Component {
 
    
     render() {
+
+    // let commentList = this.props.reduxStore.comment.map(comment =>{
+    //     console.log(comment);
+    //     return(
+    //         <Typography key={comment.id}>
+    //             {}
+    //         </Typography>
+    //     )
+    // }
+            
+    //    )}
      
         return (
             <Card className="CommentCard"> 
-            <div class="cardComment">
+           
                     {/* {JSON.stringify(this.props.reduxStore)} */}
                 <CardContent>
 
                 <Typography>
+                  {JSON.stringify(this.props.reduxStore.comment)}
                   {/* {JSON.stringify(this.props.reduxStore.message)} */}
+                  {/* {commentList} */}
                 </Typography>
                 
             
@@ -58,7 +72,7 @@ class MessageDetail extends Component {
                     </Button>
                 </CardActionArea>
                 </CardContent>  
-                </div>
+               
             </Card>  
             );
         }
