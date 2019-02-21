@@ -7,6 +7,7 @@ import AddComment from '@material-ui/icons/AddCommentRounded';
 import './Messages.css';
 import Button from '@material-ui/core/Button';
 import { CardActionArea } from '@material-ui/core';
+import moment from 'moment'
 
 
 class MessageDetail extends Component {
@@ -18,52 +19,62 @@ class MessageDetail extends Component {
             personList: [],
     }
 }
-
+        //Function to Fetch the comments based on message ID
     fetchComment = () => {
         const id = this.props.match.params.id;
-        
         const action = { type: 'FETCH_COMMENT', payload: id };
         this.props.dispatch(action);
         // console.log(this.props.message.mess_id);
     }
 
     componentDidMount() {
-        
-        this.props.dispatch({ type: 'FETCH_MESSAGES' });
-        this.props.dispatch({ type: 'FETCH_PERSON' });
+        // this.props.dispatch({ type: 'FETCH_MESSAGES' });
+        // this.props.dispatch({ type: 'FETCH_PERSON' });
         this.fetchComment();
-        // this.props.dispatch({ type: 'FETCH_COMMENT', payload: id })
     }
 
     AddCommentBtn = () => {
         console.log('AddComment Click');
     }
 
+    leftMargin = () => {
+        
+    }
    
     render() {
-
-    // let commentList = this.props.reduxStore.comment.map(comment =>{
-    //     console.log(comment);
-    //     return(
-    //         <Typography key={comment.id}>
-    //             {}
-    //         </Typography>
-    //     )
-    // }
+        //Map and Display of the User Generated Comments
+    let commentList = this.props.reduxStore.comment.map(comment =>{
+        console.log(comment);
+        return(
+            <Card key={comment.id} className="UserIdComments">
+                <Typography variant="subtitle1" className="userComments">
+                    {comment.comment}
+                </Typography>
+                <Typography className="commentUser" >
+                    {comment.username}  {moment(comment.date).format("MMM Do YYYY")}
+                </Typography>
+            </Card>
+        )
+    })
             
-    //    )}
+    
      
         return (
+            <div>
             <Card className="CommentCard"> 
            
                     {/* {JSON.stringify(this.props.reduxStore)} */}
                 <CardContent>
-
+                {/* {commentList} */}
                 <Typography>
-                  {JSON.stringify(this.props.reduxStore.comment)}
-                  {/* {JSON.stringify(this.props.reduxStore.message)} */}
-                  {/* {commentList} */}
+                {JSON.stringify(this.props.reduxStore.comment)}
+                    <p>{this.props.reduxStore.comment.headline}</p>
+                    {this.props.reduxStore.comment.message}
                 </Typography>
+                </CardContent>   
+                  
+                 
+                
                 
             
                 <CardActionArea>
@@ -71,9 +82,10 @@ class MessageDetail extends Component {
                         <AddComment  />
                     </Button>
                 </CardActionArea>
-                </CardContent>  
-               
+                 
             </Card>  
+            {commentList}
+            </div>
             );
         }
 

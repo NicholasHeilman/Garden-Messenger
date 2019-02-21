@@ -17,7 +17,6 @@
    text-indent: 10px;
 }
 
-
 .CommentCard{
     width: 400px;
     /* display: flex;
@@ -27,8 +26,18 @@
     text-emphasis: wrap;
 }
 
+.UserIdComments{
+    margin: 6px;
+    margin-left: 20px;
+}
 
-.AddCommentIcon {
+.userComments {
+    padding-left: 10px;
+    padding-top: 10px;
+    margin: 5px;
+}
 
-    
+.commentUser {
+    margin-left: 25px;
+    padding-left: 25px;
 }

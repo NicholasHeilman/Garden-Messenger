@@ -25,10 +25,21 @@ router.get('/',  (req, res) => {
 router.get('/:id', (req, res) => {
   if (req.isAuthenticated()) {
     console.log('req.user:', req.params)
-  const queryText = `SELECT * FROM "comments"
-              JOIN "message"
-              ON "mess_id" = "message_id"
-              WHERE mess_id = $1;`;
+  const queryText = `SELECT 
+	                    person.username,
+	                    person.id,
+	                    message.message,
+	                    message.date,
+	                    message.headline,
+	                    message.mess_id,
+	                    message.user_id,
+	                    comments.message_id,
+	                    comments.comment,
+	                    comments.user_id
+                    FROM "comments" 
+                    JOIN "person" ON "comments"."user_id" = "person"."id"
+                    JOIN "message" ON "message"."mess_id" = "comments"."message_id"
+                    WHERE "message"."mess_id" = $1;`;
       pool.query(queryText, [req.params.id])
       .then((result) => {res.send(result.rows);
       }).catch((error) => {
