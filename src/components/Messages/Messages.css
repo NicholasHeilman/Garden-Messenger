@@ -9,3 +9,26 @@
 
 }
 
+.messageCard {
+    margin: 6px;
+}
+
+.UserDate {
+   text-indent: 10px;
+}
+
+
+.CommentCard{
+    width: 400px;
+    /* display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap; */
+    margin: 6px;
+    text-emphasis: wrap;
+}
+
+
+.AddCommentIcon {
+
+    
+}

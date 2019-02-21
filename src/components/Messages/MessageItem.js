@@ -13,6 +13,12 @@ import { connect } from 'react-redux';
 
 //page will display each message on a card that can be clicked  
 class MessageItem extends Component {
+    constructor(props){
+      super(props);
+      this.state ={
+        mess_id: '',
+      }
+    }
   
   // componentDidUpdate(prevProps) {
   //   //get Customer Details only if props has changed
@@ -23,8 +29,11 @@ class MessageItem extends Component {
   //     }
 
   cardClick = () => {
-      console.log('Card Click');
       console.log(this.props.message.mess_id)
+      this.setState({
+        mess_id: this.props.message.mess_id,
+      })
+      console.log(this.state.mess_id)
   }
         
     render() {
@@ -42,8 +51,8 @@ class MessageItem extends Component {
          
             <Card className="messageCard">
       {/* Link to the detail view of the message */}
-            <Link className="messageLink" to={`/message/${this.props.message.mess_id}`}  > 
-            <CardActions onClick={this.cardClick}>
+            <Link className="messageLink" to={`/message/${this.props.message.mess_id}`} mess_id={this.props.message.mess_id}> 
+            <CardActions onClick={this.cardClick} mess_id={this.props.message.mess_id}>
          
             <CardContent>
 
@@ -53,7 +62,7 @@ class MessageItem extends Component {
               </Typography>
 
       {/* Display the date stamp and user for the message */}
-              <Typography className="dateUser">
+              <Typography className="UserDate">
               {this.props.message.username}, {moment(this.props.message.date).format("MMM Do YYYY")}
               </Typography>
 

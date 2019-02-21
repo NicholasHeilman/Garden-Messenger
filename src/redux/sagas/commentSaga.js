@@ -2,10 +2,13 @@ import axios from'axios';
 import { put, takeEvery } from 'redux-saga/effects';
 
 function* fetchComments(action) {
+   
     try {
-        const response = yield axios.get(`/api/messages/${action.payload}`);
-        yield put ({type: 'SET_COMMENT', payload: response.data});
-        console.log(response.data);
+        const id = action.payload;
+        const {data : responseData} = yield axios.get(`/api/messages/${id}`);
+
+        yield put ({type: 'SET_COMMENT', payload: responseData});
+        console.log(responseData);
     } catch (error){
         console.log('GET Comment Error', error);
     }

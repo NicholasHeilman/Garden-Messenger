@@ -6,7 +6,7 @@ function* fetchMessage(action) {
     try {
         const response = yield axios.get('/api/messages');
         yield put({ type: 'SET_MESSAGE', payload: response.data });
-        console.log(response.data);
+        // console.log(response.data);
     } catch (error) {
         console.log('Error with fetching message:', error);
     }
@@ -26,9 +26,7 @@ function* addToMessage(action) {
 
 //
 function* deleteFromMessage(action) {
-    let messageItem = action.payload;
-    console.log('in delete message', messageItem );
-    
+    const messageItem = action.payload.mess_id;
     try {
         yield axios.delete(`/api/messages/${messageItem}`);
         let nextAction = { type: 'FETCH_MESSAGE' };

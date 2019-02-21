@@ -5,11 +5,10 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 import TableHead from '@material-ui/core/TableHead';
-import Button from '@material-ui/core/Button';
-import Checkbox from '@material-ui/core/Checkbox';
-// import Styles from '@material-ui/Styles'
+// import Button from '@material-ui/core/Button';
 import './Admin.css';
 import moment from 'moment'
+import Delete from '@material-ui/icons/DeleteRounded';
 
 
 class Admin extends Component {
@@ -19,7 +18,12 @@ class Admin extends Component {
         this.props.dispatch({type: 'FETCH_PERSON' });
     }
     
-   
+    deleteMessage = () => {
+        console.log('Delete Message');
+        const action = {type: 'DELETE_FROM_MESSAGES',
+                        payload: {mess_id: this.props.reduxStore.message.mess_id}};
+        this.props.dispatch(action);
+    }
     
     render() {
          // Map the data for display  Person Table
@@ -28,7 +32,7 @@ class Admin extends Component {
                     <TableRow key={person.id}>
                         <TableCell>{person.username}</TableCell>
                         <TableCell>{person.email}</TableCell>
-                        <TableCell padding="checkbox"><Checkbox />
+                        <TableCell ><Delete />
                         </TableCell>
                     </TableRow>
                 
@@ -42,8 +46,9 @@ class Admin extends Component {
                     <TableCell>{message.headline}</TableCell>
                     <TableCell>{moment(message.date).format("MM-DD-YYYY")}</TableCell>
                     <TableCell>{message.mess_id}</TableCell>
-                    <TableCell padding="checkbox"><Checkbox />
-                        </TableCell>
+                    <TableCell>
+                        <Delete onClick={this.deleteMessage}/>
+                    </TableCell>
                 </TableRow>
             )
         })//end MessageTable map
@@ -57,14 +62,7 @@ class Admin extends Component {
                         <TableRow>
                             <TableCell>Name</TableCell>
                             <TableCell>Contact Info</TableCell>
-                            <TableCell align="left">
-                                <Button onClick={this.RemoveUser}>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                    <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
-                                    <path d="M0 0h24v24H0z" fill="none"/>
-                                    </svg>
-                                </Button>
-                            </TableCell>
+                            <TableCell>Remove User</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody className="PersonTableBody">
@@ -75,28 +73,21 @@ class Admin extends Component {
                 <h3>Messages</h3>   
                 <div class="MessageTable"> 
                 <Table className="MessageTable">
-                    <TableHead >
-                    <div class="MessageTableHeadRow">
+                    <TableHead className="MessageTableHeadRow">
+                    {/* <div class="MessageTableHeadRow"> */}
                         <TableRow >
                             <TableCell>Message Headline</TableCell>
                             <TableCell>Date</TableCell>
                             <TableCell>Message ID</TableCell>
-                            <TableCell align="left">
-                                <Button onClick={this.RemoveMessage}>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                    <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
-                                    <path d="M0 0h24v24H0z" fill="none"/>
-                                    </svg>
-                                </Button>
-                            </TableCell>
+                            <TableCell>Delete</TableCell>
                         </TableRow>
-                        </div>
+                        {/* </div> */}
                     </TableHead>
-                    <div class="MessageTableBody"> 
+                    {/* <div class="MessageTableBody">  */}
                     <TableBody className="MessageTableBody">
                             {messageTable}
                     </TableBody>
-                    </div>
+                    {/* </div> */}
                 </Table>     
             </div>
             </div>
