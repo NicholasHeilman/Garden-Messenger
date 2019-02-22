@@ -8,9 +8,9 @@ import Message from '../Messages/Messages';
 // and then instead of `props.user.username` you could use `user.username`
 const UserPage = (props) => (
   <div>
-    <h3 id="welcome">
-      Welcome, { props.user.username }!
-    </h3>
+    <h4 id="welcome">
+      Welcome, { props.user.username }
+    </h4>
       <Message />
     {/* <p>Your ID is: {props.user.id}</p>
     <LogOutButton className="log-in" /> */}

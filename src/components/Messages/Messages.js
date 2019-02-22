@@ -13,6 +13,7 @@ class Messages extends Component {
     componentDidMount(){
         // Saga for the axios.get 
         this.props.dispatch({type: 'FETCH_MESSAGES' });
+        // window.location.reload();
     }
 
     
@@ -26,14 +27,16 @@ class Messages extends Component {
             <div>
                 {/* {JSON.stringify(this.props.reduxStore.message)} */}
                 {this.props.reduxStore.message.map(message =>
-                     <MessageItem key={message.mess_id} message={message} />
+                     <MessageItem key={message.mess_id} message={message} headline={message.headline}/>
                 )}
                 <div className="MessageBtn" >
-                    <Link to="/AddNew">
+                    
                         <button className="addMessageBtn" onClick={this.addMessage}>
-                        <AddCircle style={{ fontSize: 48 }}/>
+                        <Link to="/AddNew">
+                        <AddCircle style={{ fontSize: 48, color: '#186842' }}  />
+                        </Link>
                         </button>
-                    </Link>
+                
                 </div>
             </div>
         );

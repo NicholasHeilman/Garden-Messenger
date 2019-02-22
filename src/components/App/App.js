@@ -16,6 +16,7 @@ import InfoPage from '../InfoPage/InfoPage';
 import './App.css';
 import MessageDetail from '../Messages/MessageDetail';
 import NewMessageForm from '../Messages/NewMessageForm';
+import NewCommentForm from '../Messages/NewCommentForm';
 // import DrawerLeft from '../Nav/DrawerLeft';
 import Admin from '../Admin/Admin';
 
@@ -74,6 +75,11 @@ class App extends Component {
               exact 
               path="/admin"
               component={Admin}
+            />
+            <ProtectedRoute
+            exact
+            path="/AddNewComment"
+            component={NewCommentForm}
             />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />

@@ -77,7 +77,7 @@ router.post('/', (req, res) => {
 //Delete Message Router
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
     const queryText = 'DELETE FROM "message" WHERE "mess_id" = $1';
-    pool.query( queryText, [req.params.id])
+    pool.query( queryText, [req.params])
     .then(() => { res.sendStatus(200); })
     .catch((err) => {
       console.log('DELETE Error', err)

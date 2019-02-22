@@ -21,8 +21,9 @@ class Admin extends Component {
     deleteMessage = () => {
         console.log('Delete Message');
         const action = {type: 'DELETE_FROM_MESSAGES',
-                        payload: {mess_id: this.props.reduxStore.message.mess_id}};
+                        payload: { id: this.props.reduxStore.message.mess_id}};
         this.props.dispatch(action);
+        console.log(this.props.reduxStore.message.mess_id);
     }
     
     render() {
@@ -32,7 +33,7 @@ class Admin extends Component {
                     <TableRow key={person.id}>
                         <TableCell>{person.username}</TableCell>
                         <TableCell>{person.email}</TableCell>
-                        <TableCell ><Delete />
+                        <TableCell ><Delete onClick={this.deletePerson} />
                         </TableCell>
                     </TableRow>
                 

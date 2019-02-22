@@ -26,9 +26,9 @@ function* addToMessage(action) {
 
 //
 function* deleteFromMessage(action) {
-    const messageItem = action.payload.mess_id;
     try {
-        yield axios.delete(`/api/messages/${messageItem}`);
+        const id = action.payload;
+        yield axios.delete(`/api/messages/${id}`);
         let nextAction = { type: 'FETCH_MESSAGE' };
         yield put(nextAction);
     } catch (error) {

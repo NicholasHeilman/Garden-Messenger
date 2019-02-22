@@ -6,8 +6,9 @@ import Typography from '@material-ui/core/Typography';
 import AddComment from '@material-ui/icons/AddCommentRounded';
 import './Messages.css';
 import Button from '@material-ui/core/Button';
-import { CardActionArea } from '@material-ui/core';
+// import { CardActionArea } from '@material-ui/core';
 import moment from 'moment'
+import { Link } from 'react-router-dom';
 
 
 class MessageDetail extends Component {
@@ -38,7 +39,7 @@ class MessageDetail extends Component {
     }
 
     leftMargin = () => {
-        
+
     }
    
     render() {
@@ -62,26 +63,27 @@ class MessageDetail extends Component {
         return (
             <div>
             <Card className="CommentCard"> 
-           
-                    {/* {JSON.stringify(this.props.reduxStore)} */}
                 <CardContent>
-                {/* {commentList} */}
                 <Typography>
-                {JSON.stringify(this.props.reduxStore.comment)}
-                    <p>{this.props.reduxStore.comment.headline}</p>
-                    {this.props.reduxStore.comment.message}
+                 {this.props.reduxStore.comment.map(comment =>{
+                     return <p>
+                                {comment.headline}<br />
+                                {comment.message}
+                            </p>
+                 })}
+                    {/* <h4>{this.props.reduxStore.comment.headline}</h4> */}
+                    {/* {this.props.reduxStore.comment} */}
+                    <h4>{this.props.comment}</h4>
                 </Typography>
                 </CardContent>   
-                  
-                 
                 
                 
-            
-                <CardActionArea>
                     <Button onClick={this.AddCommentBtn} className="AddCommentIcon" >
-                        <AddComment  />
+                        <Link to="/AddNewComment">
+                            <AddComment  />
+                        </Link>
                     </Button>
-                </CardActionArea>
+             
                  
             </Card>  
             {commentList}

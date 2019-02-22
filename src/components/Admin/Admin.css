@@ -3,9 +3,7 @@
     overflow-x: auto;
     height: 220px;
 }
-.sticky {
-    
-}
+
 .PTHead {
     
     position: sticky;
@@ -19,7 +17,7 @@
 }
 
 .MessageTable{
-    width: 400px;
+    width: 395px;
     overflow-x: auto;
     height: 220px;
 }
@@ -31,7 +29,6 @@
 }
 
 .MessageTableBody {
-  
     overflow-x: scroll;
     overflow-y: scroll;
 }

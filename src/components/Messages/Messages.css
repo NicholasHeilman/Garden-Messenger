@@ -11,6 +11,8 @@
 
 .messageCard {
     margin: 6px;
+    background-color: #a1c671;
+    opacity: 75%;
 }
 
 .UserDate {
@@ -33,11 +35,16 @@
 
 .userComments {
     padding-left: 10px;
-    padding-top: 10px;
+    padding-top: 7px;
     margin: 5px;
 }
 
 .commentUser {
     margin-left: 25px;
     padding-left: 25px;
+    padding-bottom: 5px;
+}
+
+.AddCommentIcon {
+    color: #186842;
 }
