@@ -29,7 +29,7 @@ class MessageDetail extends Component {
     }
 
     componentDidMount() {
-        // this.props.dispatch({ type: 'FETCH_MESSAGES' });
+        this.props.dispatch({ type: 'FETCH_MESSAGES' });
         // this.props.dispatch({ type: 'FETCH_PERSON' });
         this.fetchComment();
     }
@@ -65,21 +65,13 @@ class MessageDetail extends Component {
             <Card className="CommentCard"> 
                 <CardContent>
                 <Typography>
-                 {this.props.reduxStore.comment.map(comment =>{
-                     return <p>
-                                {comment.headline}<br />
-                                {comment.message}
-                            </p>
-                 })}
-                    {/* <h4>{this.props.reduxStore.comment.headline}</h4> */}
-                    {/* {this.props.reduxStore.comment} */}
-                    <h4>{this.props.comment}</h4>
+                 
                 </Typography>
                 </CardContent>   
                 
                 
-                    <Button onClick={this.AddCommentBtn} className="AddCommentIcon" >
-                        <Link to="/AddNewComment">
+                    <Button onClick={this.AddCommentBtn} className="AddCommentIcon" message_id={this.props.match.params.id}>
+                        <Link to="/AddNewComment" message_id={this.props.match.params.id} >
                             <AddComment  />
                         </Link>
                     </Button>

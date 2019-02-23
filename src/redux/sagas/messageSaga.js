@@ -12,7 +12,7 @@ function* fetchMessage(action) {
     }
 }
 
-// saga function will run on "FETCH_MESSAGE"
+// saga function will run on "ADD_TO_MESSAGE"
 function* addToMessage(action) {
     try {
         yield axios.post('/api/messages', action.payload);
@@ -24,7 +24,7 @@ function* addToMessage(action) {
 
 } // end 
 
-//
+// Will run on 'DELETE_FROM_MESSAGES'
 function* deleteFromMessage(action) {
     try {
         const id = action.payload;

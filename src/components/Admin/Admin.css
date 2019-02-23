@@ -2,8 +2,12 @@
     width: 400px;
     overflow-x: auto;
     height: 220px;
+    position: sticky;
 }
 
+.tableTitle {
+    padding-left: 25px;
+}
 .PTHead {
     
     position: sticky;
@@ -23,7 +27,7 @@
 }
 
 .MessageTableHeadRow{
-    background-color: rgb(207, 207, 207);
+    background-color: rgb(64, 206, 132);
     position: sticky;
     top: 0;
 }

@@ -11,6 +11,7 @@ import moment from 'moment'
 import { connect } from 'react-redux';
 
 
+
 //page will display each message on a card that can be clicked  
 class MessageItem extends Component {
     constructor(props){
@@ -35,7 +36,9 @@ class MessageItem extends Component {
       })
       console.log(this.state.mess_id)
   }
-        
+     
+ 
+
     render() {
 
       // let MessageItems = [];
@@ -48,8 +51,8 @@ class MessageItem extends Component {
 
         return (
           // <div>
-         
-            <Card className="messageCard">
+          
+            <Card className="messageCard" >
       {/* Link to the detail view of the message */}
             <Link className="messageLink" to={`/message/${this.props.message.mess_id}`} mess_id={this.props.message.mess_id}> 
             <CardActions onClick={this.cardClick} mess_id={this.props.message.mess_id}>

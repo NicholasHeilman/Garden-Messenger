@@ -7,10 +7,11 @@ class NewMessageForm extends Component {
         super(props);
         this.state = {
             comment: '',
-            mess_id: this.props.mess_id,
+            message_id: this.props.mess_id,
             user_id: this.props.user.id,
         };
         console.log(this.state);
+        console.log()
     }
     //  handles the change for the input fields
     changeInput = (event) => {
@@ -25,7 +26,7 @@ class NewMessageForm extends Component {
     submit = (event) => {
         event.preventDefault();
         const action = {
-            type: 'ADD_TO_MESSAGE',
+            type: 'ADD_COMMENT',
             payload: this.state,
         }
         this.props.dispatch(action);
@@ -40,7 +41,6 @@ class NewMessageForm extends Component {
             <div>
                 <form onSubmit={this.submit} id="form" ref="form">
                     <input onChange={this.changeInput} type="text" name="comment" placeholder="Add to the Conversation" ref="form" required />
-                    
                     <input type="submit" to="/home" />
                  
                 </form>
