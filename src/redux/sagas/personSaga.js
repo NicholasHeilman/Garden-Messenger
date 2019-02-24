@@ -4,6 +4,7 @@ import axios from 'axios';
 function* personSaga() {
     yield takeEvery('FETCH_PERSON', fetchPerson);
     // yield takeEvery('ADD_NEW_PERSON', addNewPerson);
+    // yield takeEvery('DELETE_PERSON', deletePerson);
 }
 
 
@@ -12,21 +13,21 @@ function* fetchPerson(action) {
     try {
         const response = yield axios.get('/api/person');
         yield put({ type: 'SET_PERSON', payload: response.data});
-        console.log(response.data);
+        // console.log(response.data);
         } catch (error) {
             console.log('GET Person Error', error);
         }
     }// end Message Get
 
-// function* addNewPerson(action){
-//     try {
-//         yield axios.post('/api/person', action.payload);
-//         const newAction = {type: 'FETCH_PERSON'};
-//         yield put(newAction);
-//     }catch (error) {
-//         console.log('POST Person Error', error);
+// function* deletePerson(action) {
+//     try{
+//         const response = yield axios.put('/api/person');
+
 //     }
-// }//end addToDashboard
+// }
+
+
+    
 
 
 

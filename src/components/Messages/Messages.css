@@ -11,6 +11,8 @@
 
 .messageCard {
     margin: 6px;
+    background-color: #a1c671;
+    /* opacity: 75%; */
 }
 
 .UserDate {
@@ -19,6 +21,7 @@
 
 .CommentCard{
     width: 400px;
+    background-color: #a1c671;
     /* display: flex;
     flex-direction: row-reverse;
     flex-wrap: wrap; */
@@ -33,11 +36,31 @@
 
 .userComments {
     padding-left: 10px;
-    padding-top: 10px;
+    padding-top: 7px;
     margin: 5px;
 }
 
 .commentUser {
     margin-left: 25px;
     padding-left: 25px;
+    padding-bottom: 5px;
+}
+
+.AddCommentIcon {
+    color: #186842;
+}
+
+.messageForm {
+    width: 60%;
+    height: 165px;
+    padding: 20px;
+
+}
+.messageInput {
+    
+}
+.submitBtn {
+    padding: 15px;
+    justify-content: end;
+
 }

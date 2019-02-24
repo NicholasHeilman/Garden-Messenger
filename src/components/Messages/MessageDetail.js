@@ -6,8 +6,9 @@ import Typography from '@material-ui/core/Typography';
 import AddComment from '@material-ui/icons/AddCommentRounded';
 import './Messages.css';
 import Button from '@material-ui/core/Button';
-import { CardActionArea } from '@material-ui/core';
+// import { CardActionArea } from '@material-ui/core';
 import moment from 'moment'
+import { Link } from 'react-router-dom';
 
 
 class MessageDetail extends Component {
@@ -28,7 +29,7 @@ class MessageDetail extends Component {
     }
 
     componentDidMount() {
-        // this.props.dispatch({ type: 'FETCH_MESSAGES' });
+        this.props.dispatch({ type: 'FETCH_MESSAGES' });
         // this.props.dispatch({ type: 'FETCH_PERSON' });
         this.fetchComment();
     }
@@ -38,7 +39,7 @@ class MessageDetail extends Component {
     }
 
     leftMargin = () => {
-        
+
     }
    
     render() {
@@ -62,26 +63,19 @@ class MessageDetail extends Component {
         return (
             <div>
             <Card className="CommentCard"> 
-           
-                    {/* {JSON.stringify(this.props.reduxStore)} */}
                 <CardContent>
-                {/* {commentList} */}
                 <Typography>
-                {JSON.stringify(this.props.reduxStore.comment)}
-                    <p>{this.props.reduxStore.comment.headline}</p>
-                    {this.props.reduxStore.comment.message}
+                 
                 </Typography>
                 </CardContent>   
-                  
-                 
                 
                 
-            
-                <CardActionArea>
-                    <Button onClick={this.AddCommentBtn} className="AddCommentIcon" >
-                        <AddComment  />
+                    <Button onClick={this.AddCommentBtn} className="AddCommentIcon" message_id={this.props.match.params.id}>
+                        <Link to="/AddNewComment" message_id={this.props.match.params.id} >
+                            <AddComment  />
+                        </Link>
                     </Button>
-                </CardActionArea>
+             
                  
             </Card>  
             {commentList}

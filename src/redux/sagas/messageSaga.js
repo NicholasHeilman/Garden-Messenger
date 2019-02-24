@@ -12,7 +12,7 @@ function* fetchMessage(action) {
     }
 }
 
-// saga function will run on "FETCH_MESSAGE"
+// saga function will run on "ADD_TO_MESSAGE"
 function* addToMessage(action) {
     try {
         yield axios.post('/api/messages', action.payload);
@@ -24,11 +24,11 @@ function* addToMessage(action) {
 
 } // end 
 
-//
+// Will run on 'DELETE_FROM_MESSAGES'
 function* deleteFromMessage(action) {
-    const messageItem = action.payload.mess_id;
     try {
-        yield axios.delete(`/api/messages/${messageItem}`);
+        const id = action.payload;
+        yield axios.delete(`/api/messages/${id}`);
         let nextAction = { type: 'FETCH_MESSAGE' };
         yield put(nextAction);
     } catch (error) {
