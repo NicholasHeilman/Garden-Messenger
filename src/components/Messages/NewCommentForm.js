@@ -15,11 +15,11 @@ class NewMessageForm extends Component {
     }
     //  handles the change for the input fields
     changeInput = (event) => {
-        const attributeName = event.target.name;
+        
         const changeValue = event.target.value;
         this.setState({
             ...this.state,
-            [attributeName]: changeValue, 
+            comment: changeValue, 
         });
     }
     //  handles the submit form click

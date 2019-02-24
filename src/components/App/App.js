@@ -11,7 +11,7 @@ import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 import AboutPage from '../AboutPage/AboutPage';
-import UserPage from '../UserPage/UserPage';
+// import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import './App.css';
 import MessageDetail from '../Messages/MessageDetail';
@@ -19,6 +19,7 @@ import NewMessageForm from '../Messages/NewMessageForm';
 import NewCommentForm from '../Messages/NewCommentForm';
 // import DrawerLeft from '../Nav/DrawerLeft';
 import Admin from '../Admin/Admin';
+import Messages from '../Messages/Messages'
 
 class App extends Component {
   componentDidMount () {
@@ -49,7 +50,7 @@ class App extends Component {
             <ProtectedRoute
               exact
               path="/home"
-              component={UserPage}
+              component={Messages}
             />
             {/* This works the same as the other protected route, except that if the user is logged in,
             they will see the info page instead. */}

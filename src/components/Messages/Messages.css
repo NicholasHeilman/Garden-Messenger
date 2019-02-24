@@ -49,3 +49,18 @@
 .AddCommentIcon {
     color: #186842;
 }
+
+.messageForm {
+    width: 60%;
+    height: 165px;
+    padding: 20px;
+
+}
+.messageInput {
+    
+}
+.submitBtn {
+    padding: 15px;
+    justify-content: end;
+
+}

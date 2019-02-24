@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './Messages.css';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button'
+
+
 
 
 class NewMessageForm extends Component {
@@ -38,10 +43,10 @@ class NewMessageForm extends Component {
     render() {
         return (
             <div>
-                <form onSubmit={this.submit} id="form" ref="form">
-                    <input onChange={this.changeInput} type="text" name="headline" placeholder="headline" ref="form" required />
-                    <input onChange={this.changeInput} type="text" name="message" placeholder="message" ref="form" required />
-                    <input type="submit" to="/home" />
+                <form onSubmit={this.submit} id="form" ref="form" class="messageForm">
+                    <TextField multiline rowsMax="2" margin="normal"onChange={this.changeInput} type="text" name="headline" label="Headline" ref="form"  />
+                    <TextField multiline rowsMax="6" label="Message" onChange={this.changeInput}  ref="form"   /><br /><br />
+                    <Button type="submit" variant="outlined" margin="normal" to="/home" className="SubmitBtn" >Submit</Button>
                  
                 </form>
             </div>

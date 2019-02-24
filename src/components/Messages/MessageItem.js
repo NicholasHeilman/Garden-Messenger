@@ -21,13 +21,6 @@ class MessageItem extends Component {
       }
     }
   
-  // componentDidUpdate(prevProps) {
-  //   //get Customer Details only if props has changed
-  //   //(props is the input) 
-  //       if (this.props.val !== prevProps.val) {
-  //         this.getCustomerDetails(this.props.val)
-  //       }
-  //     }
 
   cardClick = () => {
       console.log(this.props.message.mess_id)
@@ -40,14 +33,6 @@ class MessageItem extends Component {
  
 
     render() {
-
-      // let MessageItems = [];
-      //   for(let i = 0; i < this.props.message.length; i =+1){
-      //     let item= this.props.message[i];
-      //     let itemRow = (<MessageItem key={i} item={item} />);
-      //     MessageItems.push(itemRow);
-      //   }
-
 
         return (
           // <div>
