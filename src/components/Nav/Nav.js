@@ -9,6 +9,13 @@ import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 
+// this.renderAdminNav = () => {
+//   if(this.props.user.id === 2) {
+//     return (<Link className="nav-link" to="/Admin" >Admin</Link>);
+//   } else {
+//     return null;
+//   }
+// }
 
 const Nav = (props) => (
   <div className="nav">
@@ -26,6 +33,9 @@ const Nav = (props) => (
       {/* Show the link to the info page and the logout button if the user is logged in */}
       {props.user.id && (
         <>
+        <Link className="nav-link" to="Admin">
+       {/* {this.renderAdminNav()}; */}
+        </Link>
           <Link className="nav-link" to="/AddNew">
             Add New
           </Link>

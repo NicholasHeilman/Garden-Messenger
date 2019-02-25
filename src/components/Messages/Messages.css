@@ -56,7 +56,9 @@
     padding: 20px;
 
 }
-.messageInput {
+.AddCommentIcon {
+    justify-content: flex-end;
+    padding-left: 300px;
     
 }
 .submitBtn {

@@ -10,7 +10,7 @@ class NewMessageForm extends Component {
         super(props);
         this.state = {
             comment: '',
-            message_id: this.props.comment.id,
+            message_id: 8285,
             user_id: this.props.user.id,
         };
         console.log(this.state);
@@ -26,7 +26,7 @@ class NewMessageForm extends Component {
         });
     }
     //  handles the submit form click
-    submit = (event) => {
+    submitComment = (event) => {
         event.preventDefault();
         const action = {
             type: 'ADD_COMMENT',
@@ -42,8 +42,8 @@ class NewMessageForm extends Component {
     render() {
         return (
             <div className="commentForm">
-                <form onSubmit={this.submit} id="form" ref="form" className="commentForm" >
-                    <TextField multiline rowsMax="6" margin="normal" onChange={this.changeInput} type="text" name="comment" label="Comments" ref="form" r className="commentInput" />
+                <form onSubmit={this.submitComment} id="form" ref="form" className="commentForm" >
+                    <TextField multiline rowsMax="6" margin="normal" onChange={this.changeInput} type="text" label="Comments" ref="form" r className="commentInput" />
                     <Button type="submit" variant="outlined" margin="normal" to="/home" >Submit</Button>
                  
                 </form>

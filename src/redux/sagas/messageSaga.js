@@ -21,7 +21,6 @@ function* addToMessage(action) {
     } catch (error) {
         console.log('Error in adding message', error);
     }
-
 } // end 
 
 // Will run on 'DELETE_FROM_MESSAGES'

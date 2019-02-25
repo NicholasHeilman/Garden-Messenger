@@ -67,16 +67,21 @@ class MessageDetail extends Component {
         return (
             <div>
             <Card className="CommentCard"> 
+            {/* {JSON.stringify(this.props.reduxStore)} */}
                 <CardContent>
-                <Typography>
-                 
+                <Typography variant="h6">
+                  {this.props.reduxStore.message.headline}
+                  Welcome to the New Season!! 
+                </Typography>
+                <Typography variant="subtitle1">
+                Hello Everyone!  Lets get this year started off right.
                 </Typography>
                 </CardContent>   
                 
                 
                     <Button onClick={this.AddCommentBtn} className="AddCommentIcon" message_id={this.props.match.params.id}>
                         <Link to="/AddNewComment" id={this.props.match.params.id} >
-                            <AddComment  id={this.props.match.params.id}/>
+                            <AddComment style={{ fontSize: 30, color: '#186842' }} id={this.props.match.params.id}/>
                         </Link>
                     </Button>
              

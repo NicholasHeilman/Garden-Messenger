@@ -8,7 +8,7 @@ import './Footer.css'
 
 const Footer = () => (
   <footer className="footer">
-    &copy; Garden Messenger 
+    &copy; GrowHere
     
   </footer>
 );

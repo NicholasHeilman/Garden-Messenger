@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './Login.css';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 class LoginPage extends Component {
   state = {
@@ -32,6 +35,13 @@ class LoginPage extends Component {
   render() {
     return (
       <div>
+        <br /> 
+        <br />
+
+        <h1 className="title">GrowHere</h1>
+        <br />
+        <br />
+      
         {this.props.errors.loginMessage && (
           <h2
             className="alert"
@@ -70,6 +80,7 @@ class LoginPage extends Component {
               type="submit"
               name="submit"
               value="Log In"
+              background-color="#186842"
             />
           </div>
         </form>
@@ -77,6 +88,7 @@ class LoginPage extends Component {
           <button
             type="button"
             className="link-button"
+            color="#186842"
             onClick={() => {this.props.dispatch({type: 'SET_TO_REGISTER_MODE'})}}
           >
             Register
