@@ -7,8 +7,8 @@ import AddComment from '@material-ui/icons/AddCommentRounded';
 import './Messages.css';
 import Button from '@material-ui/core/Button';
 // import { CardActionArea } from '@material-ui/core';
-import moment from 'moment'
 import { Link } from 'react-router-dom';
+import CommentCard from '../Comments/CommentCard';
 
 
 class MessageDetail extends Component {
@@ -18,11 +18,15 @@ class MessageDetail extends Component {
             messageList: [],
             commentList: [],
             personList: [],
+            id: '',
     }
 }
         //Function to Fetch the comments based on message ID
     fetchComment = () => {
         const id = this.props.match.params.id;
+        this.setState({
+            id: this.props.match.params.id
+        })
         const action = { type: 'FETCH_COMMENT', payload: id };
         this.props.dispatch(action);
         // console.log(this.props.message.mess_id);
@@ -46,15 +50,15 @@ class MessageDetail extends Component {
         //Map and Display of the User Generated Comments
     let commentList = this.props.reduxStore.comment.map(comment =>{
         console.log(comment);
-        return(
-            <Card key={comment.id} className="UserIdComments">
-                <Typography variant="subtitle1" className="userComments">
-                    {comment.comment}
-                </Typography>
-                <Typography className="commentUser" >
-                    {comment.username}  {moment(comment.date).format("MMM Do YYYY")}
-                </Typography>
-            </Card>
+        return( <CommentCard key={comment.id} comment={comment} />
+            // <Card key={comment.id} className="UserIdComments">
+            //     <Typography variant="subtitle1" className="userComments">
+            //         {comment.comment}
+            //     </Typography>
+            //     <Typography className="commentUser" >
+            //         {comment.username}  {moment(comment.date).format("MMM Do YYYY")}
+            //     </Typography>
+            // </Card>
         )
     })
             
@@ -71,8 +75,8 @@ class MessageDetail extends Component {
                 
                 
                     <Button onClick={this.AddCommentBtn} className="AddCommentIcon" message_id={this.props.match.params.id}>
-                        <Link to="/AddNewComment" message_id={this.props.match.params.id} >
-                            <AddComment  />
+                        <Link to="/AddNewComment" id={this.props.match.params.id} >
+                            <AddComment  id={this.props.match.params.id}/>
                         </Link>
                     </Button>
              

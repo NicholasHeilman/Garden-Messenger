@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import TextField from '@material-ui/core/TextField';
+import './Comment.css';
+import Button from '@material-ui/core/Button'
 
 
 class NewMessageForm extends Component {
@@ -7,7 +10,7 @@ class NewMessageForm extends Component {
         super(props);
         this.state = {
             comment: '',
-            message_id: this.props.mess_id,
+            message_id: this.props.comment.id,
             user_id: this.props.user.id,
         };
         console.log(this.state);
@@ -38,10 +41,10 @@ class NewMessageForm extends Component {
 
     render() {
         return (
-            <div>
-                <form onSubmit={this.submit} id="form" ref="form">
-                    <input onChange={this.changeInput} type="text" name="comment" placeholder="Add to the Conversation" ref="form" required />
-                    <input type="submit" to="/home" />
+            <div className="commentForm">
+                <form onSubmit={this.submit} id="form" ref="form" className="commentForm" >
+                    <TextField multiline rowsMax="6" margin="normal" onChange={this.changeInput} type="text" name="comment" label="Comments" ref="form" r className="commentInput" />
+                    <Button type="submit" variant="outlined" margin="normal" to="/home" >Submit</Button>
                  
                 </form>
             </div>

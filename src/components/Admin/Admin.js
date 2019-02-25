@@ -5,14 +5,9 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 import TableHead from '@material-ui/core/TableHead';
-// import Button from '@material-ui/core/Button';
 import './Admin.css';
-import Delete from '@material-ui/icons/DeleteRounded';
-// import swal from 'sweetalert';
-// import axios from 'axios';
 import MessageTableRow from './MessageTableRow';
-
-
+import PersonTableRow from './PersonTableRow';
 
 class Admin extends Component {
     constructor(props){
@@ -28,106 +23,51 @@ class Admin extends Component {
         this.setState({
             message: this.props.reduxStore.message });
     }
-    // clickDeleteMessage = () => {
-    //     swal({
-    //         Title: "Confirm Delete",
-    //         text: "Once deleted, you will not be able to recover this conversation!",
-    //         icon: "warning",
-    //         buttons: true,
-    //         dangerMode: true,
-    //     })
-    //     .then((willDelete) => {
-    //         if (willDelete) {
-    //             console.log(this.props.reduxStore.message.mess_id);
-    //             this.deleteMessage();
-    //         swal("Message has been deleted!", {
-    //             icon: "success",
-    //         });
-    //         } else {
-    //             swal("Message Safe");
-    //         }
-    //     });
-    // }
-    // deleteMessage = () => {
-    //     axios({
-    //         method: 'DELETE',
-    //         url: `/api/message/${this.props.message.mess_id}`
-    //     }).then((response) => {
-    //         this.props.getProducts();
-    //     }).catch((error) => {
-    //         console.log(this.prams);
-    //         console.log(error);
-    //     });
-    // }
-    // deleteMessage = () => {
-    //     console.log('Delete Message');
-    //     const action = {type: 'DELETE_FROM_MESSAGES',
-    //                     payload: this.props.message.mess_id};
-    //     this.props.dispatch(action);
-    //     console.log(this.props.reduxStore.message.mess_id);
-    // }
-
-    // deletePerson = () => {
-    //     console.log('Delete Person');
-    //     const action = {type: 'DELETE_PERSON' };
-    //     this.props.dispatch(action);
-    // }
     
     render() {
          // Map the data for display  Person Table
          let personTable = this.props.reduxStore.person.map(person =>{
-            return(
-                    <TableRow key={person.id}>
-                        <TableCell>{person.username}</TableCell>
-                        <TableCell>{person.email}</TableCell>
-                        <TableCell ><Delete onClick={this.deletePerson} />
-                        </TableCell>
-                    </TableRow>
-                
-            )
+            return( <PersonTableRow person={person} key={person.id} />)
         })// end PersonTable map
      
         //Map and display date for Message Table
         let messageTable = this.props.reduxStore.message.map(message =>{
-           return ( <MessageTableRow message={message} key={message.mess_id} />)
-            
+           return ( <MessageTableRow message={message} key={message.mess_id} />)  
         })//end MessageTable map
        
         return (
             <div className="container">
-            <h3 className="tableTitle">Users </h3 >
+                <h3 className="tableTitle">Users </h3 >
             <div className="MessageTable">
                 <Table>
-                    <TableHead className="PTHead">
-                        <TableRow className="MessageTableHeadRow">
+                    <TableHead className="TableHeadRow">
+                        <TableRow className="TableHeadRow">
                             <TableCell>Name</TableCell>
                             <TableCell>Contact Info</TableCell>
                             <TableCell>Remove User</TableCell>
                         </TableRow>
                     </TableHead>
-                    <TableBody className="PersonTableBody">
+                  
                             {personTable}
-                    </TableBody>
+                 
                 </Table> 
-                </div>
+            </div>
                 <h3 className="tableTitle">Messages</h3>   
-                <div className="MessageTable"> 
-                <Table className="MessageTable">
-                    <TableHead className="MessageTableHeadRow">
-                    {/* <div class="MessageTableHeadRow"> */}
-                        <TableRow className="MessageTableHeadRow">
+            <div className="MessageTable"> 
+                <Table>
+                    <TableHead className="TableHeadRow">
+                        <TableRow className="TableHeadRow">
                             <TableCell>Message Headline</TableCell>
                             <TableCell>Date</TableCell>
                             <TableCell>Message ID</TableCell>
                             <TableCell>Delete</TableCell>
                         </TableRow>
-                        {/* </div> */}
                     </TableHead>
-                    {/* <div class="MessageTableBody">  */}
-                    <TableBody className="MessageTableBody">
+                   
+                    {/* <TableBody className="MessageTableBody"> */}
                             {messageTable}
-                    </TableBody>
-                    {/* </div> */}
+                    {/* </TableBody> */}
+
                 </Table>     
             </div>
             </div>

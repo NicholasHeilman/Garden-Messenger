@@ -1,18 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableRow from '@material-ui/core/TableRow';
 import moment from 'moment'
 import Delete from '@material-ui/icons/DeleteRounded';
 import axios from 'axios';
 import swal from 'sweetalert';
-// import TableHead from '@material-ui/core/TableHead';
-
+import { TableBody, TableCell, TableRow  } from '@material-ui/core';
 
 class MessageTableRow extends Component {
-    
-    
+    // Sweet Alert for delete conformation    
     clickDeleteMessage = () => {
         swal({
             Title: "Confirm Delete",
@@ -31,7 +26,9 @@ class MessageTableRow extends Component {
                 swal("Message Safe");
             }
         });
-    }
+    }// end Sweet Alert for delete
+
+    // Delete Method
     deleteMessage = () => {
         axios({
             method: 'DELETE',
@@ -43,20 +40,22 @@ class MessageTableRow extends Component {
             console.log('Delete Error', error);
             console.log(this.props.message.mess_id);
         });
-    }
+    } //end delete
 
     render() {
         return (
-            <div>
-                <TableRow key={this.props.message.mess_id}>
-                    <TableCell>{this.props.message.headline}</TableCell>
-                    <TableCell>{moment(this.props.message.date).format("MM-DD-YYYY")}</TableCell>
-                    <TableCell>{this.props.message.mess_id}</TableCell>
-                    <TableCell>
-                        <Delete onClick={this.clickDeleteMessage}/>
-                    </TableCell>
-                </TableRow>
-            </div>
+           
+                <TableBody>
+                    <TableRow key={this.props.message.mess_id}>
+                        <TableCell>{this.props.message.headline}</TableCell>
+                        <TableCell>{moment(this.props.message.date).format("MM-DD-YYYY")}</TableCell>
+                        <TableCell>{this.props.message.mess_id}</TableCell>
+                        <TableCell>
+                            <Delete onClick={this.clickDeleteMessage}/>
+                        </TableCell>
+                    </TableRow>
+                </TableBody>
+           
         );
     }
 }

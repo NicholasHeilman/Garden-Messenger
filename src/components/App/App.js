@@ -16,7 +16,7 @@ import InfoPage from '../InfoPage/InfoPage';
 import './App.css';
 import MessageDetail from '../Messages/MessageDetail';
 import NewMessageForm from '../Messages/NewMessageForm';
-import NewCommentForm from '../Messages/NewCommentForm';
+import NewCommentForm from '../Comments/NewCommentForm';
 // import DrawerLeft from '../Nav/DrawerLeft';
 import Admin from '../Admin/Admin';
 import Messages from '../Messages/Messages'
