@@ -50,30 +50,32 @@ class LoginPage extends Component {
             {this.props.errors.loginMessage}
           </h2>
         )}
-        <form onSubmit={this.login}>
+        <form onSubmit={this.login} className="LoginForm">
           <h1>Login</h1>
           <div>
-            <label htmlFor="username">
-              Username:
-              <input
+            
+              <TextField
                 type="text"
+                label="Username"
                 name="username"
                 value={this.state.username}
                 onChange={this.handleInputChangeFor('username')}
               />
-            </label>
+            
           </div>
           <div>
-            <label htmlFor="password">
-              Password:
-              <input
+          
+              <TextField
                 type="password"
+                label="Password"
                 name="password"
                 value={this.state.password}
                 onChange={this.handleInputChangeFor('password')}
               />
-            </label>
+            
           </div>
+          <br />
+          <br />
           <div>
             <input
               className="log-in"
@@ -85,6 +87,9 @@ class LoginPage extends Component {
           </div>
         </form>
         <center>
+          <br />
+          <br />
+          <br />
           <button
             type="button"
             className="link-button"

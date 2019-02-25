@@ -2,10 +2,17 @@
     text-align: center;
 }
 
+.LoginForm{
+    width: 60%;
+    height: 180px;
+    padding: 20px;
+
+}
+
 .link-button {
     background-color: #186842;
 }
 
 .log-in{
-    background-color: #186842;
+    background-color: #186842 !important;
 }

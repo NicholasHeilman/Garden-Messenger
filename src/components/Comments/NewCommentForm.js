@@ -44,7 +44,7 @@ class NewMessageForm extends Component {
             <div className="commentForm">
                 <form onSubmit={this.submitComment} id="form" ref="form" className="commentForm" >
                     <TextField multiline rowsMax="6" margin="normal" onChange={this.changeInput} type="text" label="Comments" ref="form" r className="commentInput" />
-                    <Button type="submit" variant="outlined" margin="normal" to="/home" >Submit</Button>
+                    <Button type="submit" variant="outlined" style={{ color: '#186842' }} margin="normal" to="/home" >Submit</Button>
                  
                 </form>
             </div>

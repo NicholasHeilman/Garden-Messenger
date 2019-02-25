@@ -46,7 +46,7 @@ class NewMessageForm extends Component {
                 <form onSubmit={this.submit} id="form" ref="form" class="messageForm">
                     <TextField multiline rowsMax="2" margin="normal"onChange={this.changeInput} type="text" name="headline" label="Headline" ref="form"  />
                     <TextField multiline rowsMax="4" label="Message" onChange={this.changeInput}  ref="form"   /><br /><br />
-                    <Button type="submit" variant="outlined" margin="normal" to="/home" className="SubmitBtn" >Submit</Button>
+                    <Button type="submit" variant="outlined" style={{ color: '#186842' }} margin="normal" to="/home" className="SubmitBtn" >Submit</Button>
                  
                 </form>
             </div>

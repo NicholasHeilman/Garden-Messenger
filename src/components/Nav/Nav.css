@@ -19,6 +19,11 @@
   padding: 24px 10px;
   text-decoration: none;
   font-size: 15px;
+  text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
 
   /* these last two make the logout button in
   the nav bar look like another link */
