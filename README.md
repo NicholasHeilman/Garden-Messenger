@@ -1,6 +1,6 @@
 # GardenHere
 
-A web app used to save and view communication between a a small user group.  This is a work in progress exampple of a message board app design for a mobile platform.
+A web app used to save and view communication between a a small user group.  This is a work in progress example of a message board app design for a mobile platform.
 
 
 
